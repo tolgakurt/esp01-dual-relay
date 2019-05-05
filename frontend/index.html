@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#db7093">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Perde Kontrol</title>
+  <link rel="stylesheet" href="/assets/bulma.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <div id="vueApp">
+    <section class="section" v-if="Object.keys(devices).length">
+      <h1 class="title">
+        Eklenmiş Cihazlar
+      </h1>
+      <table class="table is-fullwidth">
+        <thead>
+          <tr>
+            <th>Cihaz ID</th>
+            <th>Cihaz Ad</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(deviceName, deviceId) in devices">
+            <td>{{ deviceId }}</td>
+            <td>{{ deviceName }}</td>
+            <td>
+              <div class="control">
+                <a class="button is-primary" v-bind:href="'schedule.html?deviceId=' + deviceId">Yönet</a>
+              </div>
+            </td>
+            <td>
+              <div class="control">
+                <button class="button is-danger" v-on:click="deleteDevice(deviceId)">Sil</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="section">
+      <h1 class="title">
+        Yeni Cihaz Ekle
+      </h1>
+      <div class="field">
+        <div class="control">
+          <input class="input" type="text" placeholder="Cihaz ID" v-model="newDeviceId">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <input class="input" type="text" placeholder="Cihaz Ad" v-model="newDeviceName">
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button is-link" v-bind:disabled="checkDeviceId" v-on:click="addNewDevice">Ekle</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="/assets/vue.js"></script>
+  <script src='/assets/index.js'></script>
+</body>
+</html>

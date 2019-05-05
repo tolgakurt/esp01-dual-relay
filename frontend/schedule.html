@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#db7093">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Perde Kontrol</title>
+  <link rel="stylesheet" href="/assets/bulma.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <div id="vueApp">
+    <section class="section">
+      <h1 class="title">
+        Mevcut cihaz
+      </h1>
+      <p>
+        {{ deviceName }} ({{ deviceId }})
+      </p>
+    </section>
+    <section class="section">
+      <h1 class="title">
+        Komut gönder
+      </h1>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" v-on:click="invokeDeviceMethod('openCurtain')">Aç</button>
+        </div>
+        <div class="control">
+          <button class="button is-danger" v-on:click="invokeDeviceMethod('closeCurtain')">Kapat</button>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h1 class="title">
+        Mevcut ayarlar
+      </h1>
+      <table class="table is-fullwidth">
+        <thead>
+          <tr>
+            <th>Gün</th>
+            <th>Zaman</th>
+            <th>İşlem</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in schedule">
+            <td>{{ dayIndexToString(item[0]) }}</td>
+            <td>{{ createFormattedTime(item[1], item[2]) }}</td>
+            <td>{{ actionIndexToString(item[3]) }}</td>
+            <td>
+              <div class="control">
+                <button class="button is-danger" v-on:click="setSchedule(index)">Sil</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="section">
+      <h1 class="title">
+        Yeni ayar
+      </h1>
+      <div class="field">
+        <label class="label">Gün</label>
+        <div class="control">
+          <div class="select">
+            <select v-model="scheduleDay">
+              <option value="2">Pazartesi</option>
+              <option value="3">Salı</option>
+              <option value="4">Çarşamba</option>
+              <option value="5">Perşembe</option>
+              <option value="6">Cuma</option>
+              <option value="7">Cumartesi</option>
+              <option value="1">Pazar</option>
+              <option value="weekDays">Hafta içi günleri</option>
+              <option value="weekEnd">Hafta sonu günleri</option>
+              <option value="allDays">Tüm günler</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Saat</label>
+        <div class="control">
+          <input class="input" type="number" min="0" max="23" v-model="scheduleHour" />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Dakika</label>
+        <div class="control">
+          <input class="input" type="number" min="0" max="59" v-model="scheduleMinute" />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Komut</label>
+        <div class="control">
+          <div class="select">
+            <select v-model="scheduleAction">
+              <option value="1">Kapat</option>
+              <option value="2">Aç</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+            <button class="button is-link" v-bind:disabled="checkScheduleItem" v-on:click="setSchedule()">Ekle</button>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="control">
+        <a class="button is-primary" v-bind:href="'index.html'">Cihaz listesine dön</a>
+      </div>
+    </section>
+  </div>
+  <script src="/assets/vue.js"></script>
+  <script src='/assets/schedule.js'></script>
+</body>
+</html>

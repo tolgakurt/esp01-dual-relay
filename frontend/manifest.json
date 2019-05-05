@@ -1,0 +1,15 @@
+{
+  "short_name": "Perde Kontrol",
+  "name": "PWA ile perde programlama ve anlık kontrol",
+  "icons": [
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "theme_color": "#f9eb52",
+  "background_color": "#222222",
+  "display": "standalone"
+}
