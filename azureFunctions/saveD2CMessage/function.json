@@ -1,0 +1,14 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "IoTHubMessages",
+      "direction": "in",
+      "path": "samples-workitems",
+      "connection": "CurtainHub_events_IOTHUB",
+      "cardinality": "many",
+      "consumerGroup": "$Default"
+    }
+  ],
+  "disabled": false
+}

@@ -1,0 +1,13 @@
+{
+  "name": "curtaincontrol",
+  "version": "1.0.0",
+  "description": "Azure IOT HUB control via Azure functions using Azure SDK",
+  "author": "Tolga Kurt <kurt.tolga@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "azure-iot-common": "^1.9.7",
+    "azure-iothub": "^1.9.7",
+    "azure-storage": "^2.10.3",
+    "uuid": "^3.3.2"
+  }
+}

@@ -142,3 +142,6 @@ eagle.epf
 
 # file locks introduced since 7.x
 *.lck
+
+# connection strings
+azureFunctions/connectionStrings.js
