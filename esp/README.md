@@ -20,6 +20,8 @@ These operations take place during each `loop()` call:
 - The schedule is checked if any action needs to be taken at the moment.
 - IoT Hub operations in the queue are done.
 
+The code in this folder was initially based on [this boilerplate](https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app). An extensive tutorial to configure Azure IoT Hub and connect an ESP based module to it can be found [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started) for additional reference.  
+
 ## Configuration
 
 There are no hardcoded values distributed amongst individual source files; they are all written in `config.h` file. These can be tweaked to make adjustments.
