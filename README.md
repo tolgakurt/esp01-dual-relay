@@ -12,19 +12,19 @@ We tried to be sure about all the components we used and each line of code we wr
 
 ## The Circuit
 
-We modeled the circuit using EAGLE. The details about the design and implementation of the circuit can be found in `pcb` folder. This folder also contains gcode files so that you can etch the pcb using a CNC machine. You can export the trace masks from EAGLE as well. More information can be found [here](pcb/README.md).  
+We modeled the circuit using EAGLE. The details about the design and implementation of the circuit can be found in `pcb` folder. This folder also contains gcode files so that you can etch the pcb using a CNC machine. You can export the trace masks from EAGLE as well. More information can be found [here](pcb).  
 
 ## Embedded Code and Azure IoT Hub 
 
-Embedded code is contained in `esp` folder. This software connects the device to Azure IoT Hub using MQTT protocol. An overall and detailed information can be found [here](esp/README.md).  
+Embedded code is contained in `esp` folder. This software connects the device to Azure IoT Hub using MQTT protocol. An overall and detailed information can be found [here](esp).  
 
 ## Azure Functions and Storage
 
-Azure Functions are implemented to handle user requests and manage the devices in the IoT Hub. All related files are in `azureFunctions` folder. The details about Azure Functions, related Azure Storage, and implemented API endpoints are defined [here](azureFunctions/README.md).  
+Azure Functions are implemented to handle user requests and manage the devices in the IoT Hub. All related files are in `azureFunctions` folder. The details about Azure Functions, related Azure Storage, and implemented API endpoints are defined [here](azureFunctions).  
 
 ## User Interface
 
-A frontend for the users is implemented as a progressive web app. Frontend files are in `frontend` folder. The usage details and business logic of the user interface are explained [here](frontend/README.md).  
+A frontend for the users is implemented as a progressive web app. Frontend files are in `frontend` folder. The usage details and business logic of the user interface are explained [here](frontend).  
 
 ## Possible Enhancements
 
